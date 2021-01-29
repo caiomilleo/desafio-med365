@@ -1,7 +1,9 @@
+import ListaGifs from './pages/ListaGifs/ListaGifs';
+
 function App() {
   return (
     <div className='App'>
-      <h2>Home</h2>
+      <ListaGifs />
     </div>
   );
 }
