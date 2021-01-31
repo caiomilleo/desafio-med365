@@ -6,4 +6,5 @@ export const Container = styled.div`
   border: 1px solid black;
   margin: 1%;
   align-items: stretch;
+  cursor: pointer;
 `;

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { InputComponent } from '../InputComponent/InputComponent';
 import useDebounce from '../../hooks/useDebounce';
 import { searchGifs } from '../../services/api';
-import { Container } from '../CardGif/styles';
+import { Container } from './styles';
 
 export function SearchComponent({ setGifs }) {
   const [searchValue, setSearchValue] = useState('');

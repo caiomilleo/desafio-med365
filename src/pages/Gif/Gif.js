@@ -1,9 +1,11 @@
-import React from 'react';
 import { Container } from './styles';
-export function CardGif({ gif, setGif }) {
+
+function Gif({ gif }) {
   return (
-    <Container onClick={() => setGif(gif)}>
+    <Container>
       <img src={gif.images.fixed_height_small.url} />
     </Container>
   );
 }
+
+export default Gif;
