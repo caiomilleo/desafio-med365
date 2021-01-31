@@ -1,9 +1,9 @@
 import React from 'react';
-
+import { Container } from './styles';
 export function CardGif({ gif }) {
   return (
-    <div>
+    <Container>
       <img src={gif.images.fixed_height_small.url} />
-    </div>
+    </Container>
   );
 }

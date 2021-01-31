@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { InputComponent } from '../InputComponent/InputComponent';
 import useDebounce from '../../hooks/useDebounce';
 import { searchGifs } from '../../services/api';
+import { Container } from '../CardGif/styles';
 
 export function SearchComponent({ setGifs }) {
   const [searchValue, setSearchValue] = useState('');
@@ -19,6 +20,12 @@ export function SearchComponent({ setGifs }) {
   };
 
   return (
-    <InputComponent value={searchValue} type='text' setValue={setSearchValue} />
+    <Container>
+      <InputComponent
+        value={searchValue}
+        type='text'
+        setValue={setSearchValue}
+      />
+    </Container>
   );
 }
