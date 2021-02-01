@@ -4,18 +4,17 @@ import useDebounce from '../../hooks/useDebounce';
 import { searchGifs } from '../../services/api';
 import { Container } from './styles';
 
-export function SearchComponent({ setGifs }) {
-  const [searchValue, setSearchValue] = useState('');
+export function SearchComponent({ setGifs, searchValue, setSearchValue }) {
   const debouncedSearch = useDebounce(searchValue, 1000);
 
   useEffect(() => {
-    search(debouncedSearch, 10);
+    search(debouncedSearch);
   }, [debouncedSearch]);
 
   const search = async (searchText) => {
     try {
-      const { data } = await searchGifs(searchText, 20);
-      setGifs(data);
+      const { data, pagination } = await searchGifs(searchText, 20);
+      setGifs({ data, pagination });
     } catch (error) {}
   };
 

@@ -1,13 +1,38 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import { searchGifs } from '../../services/api';
 import { CardGif } from '../CardGif/CardGif';
 import { Container } from './styles';
 
-export function GridGifs({ gifs, setGif }) {
+export function GridGifs({ gifs, setGif, setGifs, searchValue }) {
+  const divRef = useRef();
+
+  const search = async (searchText) => {
+    try {
+      const { data, pagination } = await searchGifs(
+        searchText,
+        gifs.pagination.count + 20
+      );
+      setGifs({ data, pagination });
+    } catch (error) {}
+  };
+
+  const onScroll = () => {
+    if (divRef.current) {
+      const { scrollTop, scrollHeight, clientHeight } = divRef.current;
+      if (scrollTop + clientHeight === scrollHeight) {
+        search(searchValue);
+      }
+    }
+  };
+
   return (
-    <Container>
+    <Container onScroll={() => onScroll()} ref={divRef}>
       {gifs &&
-        gifs.length > 0 &&
-        gifs.map((gif) => <CardGif gif={gif} key={gif.id} setGif={setGif} />)}
+        gifs.data &&
+        gifs.data.length > 0 &&
+        gifs.data.map((gif) => (
+          <CardGif gif={gif} key={gif.id} setGif={setGif} />
+        ))}
     </Container>
   );
 }
