@@ -3,7 +3,14 @@ import { searchGifs } from '../../services/api';
 import { CardGif } from '../CardGif/CardGif';
 import { Container } from './styles';
 
-export function GridGifs({ gifs, setGif, setGifs, searchValue }) {
+export function GridGifs({
+  gifs,
+  setGif,
+  setGifs,
+  searchValue,
+  setGifsFavoritos,
+  gifsFavoritos,
+}) {
   const divRef = useRef();
 
   const search = async (searchText) => {
@@ -31,7 +38,13 @@ export function GridGifs({ gifs, setGif, setGifs, searchValue }) {
         gifs.data &&
         gifs.data.length > 0 &&
         gifs.data.map((gif) => (
-          <CardGif gif={gif} key={gif.id} setGif={setGif} />
+          <CardGif
+            gif={gif}
+            key={gif.id}
+            setGif={setGif}
+            gifsFavoritos={gifsFavoritos}
+            setGifsFavoritos={setGifsFavoritos}
+          />
         ))}
     </Container>
   );

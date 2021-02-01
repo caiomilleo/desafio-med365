@@ -2,7 +2,15 @@ import { GridGifs } from '../../components/GridGifs/GridGifs';
 import { SearchComponent } from '../../components/SearchComponent/SearchComponent';
 import { Container } from './styles';
 
-function ListaGifs({ gifs, setGifs, searchValue, setSearchValue, setGif }) {
+function ListaGifs({
+  gifs,
+  setGifs,
+  searchValue,
+  setSearchValue,
+  setGif,
+  gifsFavoritos,
+  setGifsFavoritos,
+}) {
   return (
     <Container>
       <SearchComponent
@@ -17,6 +25,8 @@ function ListaGifs({ gifs, setGifs, searchValue, setSearchValue, setGif }) {
         setGif={setGif}
         searchValue={searchValue}
         setSearchValue={setSearchValue}
+        gifsFavoritos={gifsFavoritos}
+        setGifsFavoritos={setGifsFavoritos}
       />
     </Container>
   );
