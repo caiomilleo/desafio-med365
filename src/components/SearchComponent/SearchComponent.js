@@ -9,6 +9,7 @@ export function SearchComponent({ setGifs, searchValue, setSearchValue }) {
 
   useEffect(() => {
     search(debouncedSearch);
+    // eslint-disable-next-line
   }, [debouncedSearch]);
 
   const search = async (searchText) => {
