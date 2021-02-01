@@ -1,10 +1,13 @@
-import { Container } from './styles';
+import { CardGif } from '../../components/CardGif/CardGif';
 
-function Gif({ gif }) {
+function Gif({ gif, setGif, setGifsFavoritos, gifsFavoritos }) {
   return (
-    <Container>
-      <img src={gif.images.fixed_height_small.url} />
-    </Container>
+    <CardGif
+      gif={gif}
+      setGif={setGif}
+      setGifsFavoritos={setGifsFavoritos}
+      gifsFavoritos={gifsFavoritos}
+    />
   );
 }
 

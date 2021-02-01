@@ -28,7 +28,12 @@ function App() {
             />
           </Route>
           <Route exact path='/gif'>
-            <Gif gif={gif} />
+            <Gif
+              gif={gif}
+              setGifsFavoritos={setGifsFavoritos}
+              setGif={setGif}
+              gifsFavoritos={gifsFavoritos}
+            />
           </Route>
           <Route exact path='/favoritos'>
             <Favoritos

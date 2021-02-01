@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { InputComponent } from '../InputComponent/InputComponent';
 import useDebounce from '../../hooks/useDebounce';
 import { searchGifs } from '../../services/api';
@@ -24,6 +24,7 @@ export function SearchComponent({ setGifs, searchValue, setSearchValue }) {
         value={searchValue}
         type='text'
         setValue={setSearchValue}
+        placeholder='Procurar por gifs'
       />
     </Container>
   );
